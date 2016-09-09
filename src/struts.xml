@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 禁用动态方法访问 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <!--  配置成为开发模式 -->
+    <constant name="struts.devMode" value="true"/>
+    <!-- 配置拓展名为 .action -->
+    <constant name="struts.action.extension" value="action"/>
+    <!-- 配置主题为simple -->
+    <constant name="struts.ui.theme" value="simple"/>
+
+    <!-- 配置action -->
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="person-save" class="personAction" method="execute">
+            <result name="success">/success.jsp</result>
+        </action>
+    </package>
+
+</struts>
