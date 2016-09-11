@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sunyanxiong.nsfw.user.entity">
+    <class name="User" table="user">
+        <id name="id" column="id" type="java.lang.String">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="dept" column="dept" type="java.lang.String"></property>
+        <property name="account" column="account" type="java.lang.String"></property>
+        <property name="name" column="name" type="java.lang.String"></property>
+        <property name="password" column="password" type="java.lang.String"></property>
+
+        <property name="headImg" column="headImg" type="java.lang.String"></property>
+        <property name="gender" column="gender" type="boolean"></property>
+        <property name="state" column="state" type="java.lang.String"></property>
+        <property name="mobile" column="mobile" type="java.lang.String"></property>
+        <property name="email" column="email" type="java.lang.String"></property>
+
+        <property name="birthday" column="birthday" type="java.util.Date"></property>
+        <property name="memo" column="memo" type="java.lang.String"></property>
+    </class>
+</hibernate-mapping>

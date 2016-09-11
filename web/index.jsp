@@ -1,32 +1,26 @@
-<%@ page import="javafx.application.Application" %>
-<%@ page import="org.springframework.context.ApplicationContext" %>
-<%@ page import="org.springframework.web.context.support.XmlWebApplicationContext" %>
-<%@ page import="org.springframework.web.context.support.WebApplicationContextUtils" %>
-<%@ page import="com.sunyanxiong.entity.Person" %><%--
-  Created by IntelliJ IDEA.
-  User: Daxiong
-  Date: 2016/9/9 0009
-  Time: 21:51
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%
+  String path = request.getContextPath();
+  String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  <%-- 测试web服务器启动时是否成功加载 spring IoC 容器 --%>
-  <%--<%
-    /* 1.从 application 域对象中获取spring IoC 容器 */
-    ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(application);
-    /* 2.从spring IoC 容器中获取 bean */
-    Person person = ctx.getBean(Person.class);
-    /* 3.使用 bean */
-    person.hello();
-  %>--%>
+<head>
+  <base href="<%=basePath%>">
 
-  <%-- 请求地址 --%>
-  <a href="person-save.action">person save</a>
+  <title>My JSP 'index.jsp' starting page</title>
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+  <meta http-equiv="description" content="This is my page">
+  <!--
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  -->
+</head>
 
-  </body>
+<body>
+This is my JSP page. <br>
+</body>
 </html>
