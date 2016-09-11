@@ -16,14 +16,14 @@
   </head>
   <body>
   <%-- 测试web服务器启动时是否成功加载 spring IoC 容器 --%>
-  <%
+  <%--<%
     /* 1.从 application 域对象中获取spring IoC 容器 */
     ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(application);
     /* 2.从spring IoC 容器中获取 bean */
     Person person = ctx.getBean(Person.class);
     /* 3.使用 bean */
     person.hello();
-  %>
+  %>--%>
 
   <%-- 请求地址 --%>
   <a href="person-save.action">person save</a>
