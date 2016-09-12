@@ -16,7 +16,6 @@
     <div class="c_crumbs"><div><b></b><strong>用户管理</strong>&nbsp;-&nbsp;编辑用户</div></div>
     <div class="tableH2">编辑用户</div>
     <table id="baseInfo" width="100%" align="center" class="list" border="0" cellpadding="0" cellspacing="0"  >
-        <s:hidden name="user.id"/>
         <tr>
             <td class="tdBg" width="200px">所属部门：</td>
             <td><s:select name="user.dept" list="#{'部门A':'部门A','部门B':'部门B'}"></s:select></td>
@@ -24,9 +23,10 @@
         <tr>
             <td class="tdBg" width="200px">头像：</td>
             <td>
-                
-                    <img src="" width="100" height="100"/>
-                
+                <s:if test="%{user.headImg != null && user.headImg != ''}">
+                    <img src="${basePath }upload/<s:property value='user.headImg'/>" width="100" height="100"/>
+                    <s:hidden name="user.headImg"/>
+                </s:if>
                 <input type="file" name="headImg"/>
             </td>
         </tr>
@@ -76,6 +76,7 @@
             <td><s:textarea name="user.memo" cols="75" rows="3"/></td>
         </tr>
     </table>
+    <s:hidden name="user.id"/>
     <div class="tc mt20">
         <input type="submit" class="btnB2" value="保存" />
         &nbsp;&nbsp;&nbsp;&nbsp;
