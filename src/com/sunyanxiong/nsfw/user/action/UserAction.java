@@ -1,13 +1,15 @@
 package com.sunyanxiong.nsfw.user.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.sunyanxiong.core.util.ExcelUtil;
 import com.sunyanxiong.nsfw.user.entity.User;
 import com.sunyanxiong.nsfw.user.service.UserService;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.SystemUtils;
 import org.apache.struts2.ServletActionContext;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.List;
 import java.util.UUID;
@@ -144,6 +146,32 @@ public class UserAction extends ActionSupport {
         }
         return SUCCESS;
     }
+
+    // 导出用户列表到 Excel
+    public void exportExcel(){
+        ServletOutputStream outputStream = null;
+        try {
+            // 1.获取需要导出的数据列表
+            userList = userService.findUsers();
+
+            // 创建指定目录的Excel文件
+            HttpServletResponse response = ServletActionContext.getResponse();
+            response.setContentType("application/x-excel");
+            response.setHeader("Content-Disposition", "attachment;filename=" + new String("用户列表.xls".getBytes(), "ISO-8859-1"));
+            outputStream = response.getOutputStream();
+
+            ExcelUtil.exportUserExcel(userList,outputStream);
+
+            if (outputStream != null){
+                outputStream.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     public List<User> getUserList() {
         return userList;

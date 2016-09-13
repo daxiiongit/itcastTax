@@ -32,6 +32,10 @@
       		document.forms[0].action = "${basePath}nsfw/user_deleteSelected.action";
       		document.forms[0].submit();
       	}
+        // 将用户裂变导出到硬盘
+        function doExportExcel(){
+            window.open("${basePath}nsfw/user_exportExcel.action")
+        }
     </script>
 </head>
 <body class="rightBody">
