@@ -1,6 +1,7 @@
 package com.sunyanxiong.core.util;
 
 import com.sunyanxiong.nsfw.user.entity.User;
+import com.sunyanxiong.nsfw.user.service.UserService;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -10,8 +11,13 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javax.servlet.ServletOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -120,8 +126,6 @@ public class ExcelUtil {
                 cellx5.setCellValue(userList.get(j).getEmail());
 
             }
-
-
             workbook.write(outputStream);
         } catch (Exception e) {
             e.printStackTrace();

@@ -32,9 +32,14 @@
       		document.forms[0].action = "${basePath}nsfw/user_deleteSelected.action";
       		document.forms[0].submit();
       	}
-        // 将用户裂变导出到硬盘
+        // 将用户列表导出到硬盘
         function doExportExcel(){
             window.open("${basePath}nsfw/user_exportExcel.action")
+        }
+        // 将excel 文件导入到程序
+        function doImportExcel(){
+            document.forms[0].action = "${basePath}nsfw/user_importExcel.action";
+            document.forms[0].submit();
         }
     </script>
 </head>

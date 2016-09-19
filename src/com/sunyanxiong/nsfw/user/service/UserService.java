@@ -2,6 +2,7 @@ package com.sunyanxiong.nsfw.user.service;
 
 import com.sunyanxiong.nsfw.user.entity.User;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,5 +21,8 @@ public interface UserService {
     public User findUserById(Serializable id);
     // 查询列表
     public List<User> findUsers();
+
+    // 导入 Excel 表
+    public void importUserExcel(File userExcel,String userExcelFileName,UserService userService) throws Exception;
 
 }

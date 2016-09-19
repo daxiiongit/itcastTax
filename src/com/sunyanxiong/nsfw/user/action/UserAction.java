@@ -38,6 +38,11 @@ public class UserAction extends ActionSupport {
     // (3)头像名称
     private String headImgFileName;
 
+    // 获取导入的 Excel 文件
+    private File userExcel;
+    private String userExcelContentType;
+    private String userExcelFileName;
+
     // 显示列表
     public String listUI(){
         userList = userService.findUsers();
@@ -172,6 +177,17 @@ public class UserAction extends ActionSupport {
 
     }
 
+    // 将 Excel 导入到程序中
+    public String importExcel() throws Exception {
+        // 1.获取Excel 文件
+        // 2.导入
+        if (userExcel != null) {
+            if (userExcelFileName.matches("^.+\\.(?i)((xls)|(xlsx))$")) {
+                userService.importUserExcel(userExcel, userExcelFileName,userService);
+            }
+        }
+        return SUCCESS;
+    }
 
     public List<User> getUserList() {
         return userList;
@@ -219,5 +235,29 @@ public class UserAction extends ActionSupport {
 
     public void setHeadImg(File headImg) {
         this.headImg = headImg;
+    }
+
+    public File getUserExcel() {
+        return userExcel;
+    }
+
+    public void setUserExcel(File userExcel) {
+        this.userExcel = userExcel;
+    }
+
+    public String getUserExcelContentType() {
+        return userExcelContentType;
+    }
+
+    public void setUserExcelContentType(String userExcelContentType) {
+        this.userExcelContentType = userExcelContentType;
+    }
+
+    public String getUserExcelFileName() {
+        return userExcelFileName;
+    }
+
+    public void setUserExcelFileName(String userExcelFileName) {
+        this.userExcelFileName = userExcelFileName;
     }
 }

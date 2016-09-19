@@ -3,7 +3,12 @@
     <CLASSES>
       <root url="file://$PROJECT_DIR$/web/WEB-INF/lib" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="file://F:/spring4.2.5-hibernate-4.3.11/hibernate-release-4.3.11.Final/hibernate-release-4.3.11.Final/documentation/javadocs" />
+      <root url="file://F:/spring4.2.5-hibernate-4.3.11/spring-framework-4.2.5.RELEASE-dist/spring-framework-4.2.5.RELEASE/docs/javadoc-api" />
+      <root url="file://F:/spring4.2.5-hibernate-4.3.11/hibernate-release-4.3.11.Final/hibernate-release-4.3.11.Final/documentation/manual" />
+      <root url="file://F:/后端编程/项目实战/day45_项目NO.2/poi-bin-3.11-20141221/poi-3.11/docs/apidocs" />
+    </JAVADOC>
     <SOURCES />
     <jarDirectory url="file://$PROJECT_DIR$/web/WEB-INF/lib" recursive="false" />
   </library>
